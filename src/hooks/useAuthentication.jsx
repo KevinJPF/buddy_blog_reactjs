@@ -24,6 +24,7 @@ export const useAuthentication = () => {
     if (cancelled) return;
   }
 
+  // register user
   const createUser = async (data) => {
     checkIfIsCancelled();
 
@@ -65,6 +66,44 @@ export const useAuthentication = () => {
     }
   };
 
+  // logout user
+  const logout = () => {
+    checkIfIsCancelled();
+
+    signOut(auth);
+  };
+
+  // login user
+  const login = async (data) => {
+    checkIfIsCancelled();
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      setLoading(false);
+    } catch (error) {
+      let systemErrorMessage = error;
+      console.log(systemErrorMessage);
+
+      if (error.message.includes("invalid-credential")) {
+        systemErrorMessage =
+          "Este usuário está incorreto ou não existe, por favor verifique se digitou corretamente e tente novamente.";
+      } else if (error.message.includes("too-many-requests")) {
+        systemErrorMessage =
+          "Esta conta foi temporariamente desabilitada por excesso de tentativas. Você pode recuperá-la imediatamente trocando sua senha ou tente novamente mais tarde";
+      } else {
+        systemErrorMessage =
+          "Ocorreu um erro, por favor tente novamente mais tarde.";
+      }
+
+      setLoading(false);
+
+      setError(systemErrorMessage);
+    }
+  };
+
   useEffect(() => {
     return () => setCancelled(true);
   }, []);
@@ -74,5 +113,7 @@ export const useAuthentication = () => {
     createUser,
     error,
     loading,
+    logout,
+    login,
   };
 };

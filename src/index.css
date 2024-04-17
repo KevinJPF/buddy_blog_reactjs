@@ -6,6 +6,10 @@ body {
   color: #f7ece1;
 }
 
+h1 {
+  color: #51a3a3;
+}
+
 input::placeholder,
 textarea::placeholder {
   font-family: "Montserrat", sans-serif;
@@ -46,10 +50,22 @@ label {
   margin-bottom: 1em;
 }
 
+input:focus {
+  color: #51a3a3;
+  border-color: #51a3a3;
+  transition: 0.2s;
+}
+
+input:focus::placeholder {
+  color: #51a3a39f;
+  transition: 0.2s;
+}
+
 label span {
   margin-bottom: 0.3em;
   font-weight: bold;
   text-align: left;
+  color: #51a3a3;
 }
 
 input,

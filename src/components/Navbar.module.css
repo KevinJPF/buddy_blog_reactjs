@@ -5,15 +5,13 @@
   align-items: center;
   padding: 0.5em 2em;
   background-color: #51a3a3;
-  /* margin: 16px 0px; */
 }
 
 .navbar a {
-  text-decoration: none;
   color: #1e1a2e;
 }
 
-.brand:hover {
+.navbar a:hover {
   color: #57417a;
 }
 
@@ -26,21 +24,19 @@
   text-transform: uppercase;
 }
 
+.navbar a:hover.logout:hover {
+  color: #ba1b1d;
+}
+
 .links_list {
   display: flex;
   list-style: none;
 }
 
 .links_list a {
-  /* margin: 0px 10px; */
   padding: 8px 24px;
   font-size: 20px;
-  text-decoration: none;
   transition: 0.4s;
-}
-
-.links_list a:hover {
-  color: #57417a;
 }
 
 .links_list a:active {
@@ -48,7 +44,6 @@
   background-color: transparent;
   transition: 0.1s;
 }
-
 .active {
   color: #57417a;
   background-color: #f7ece1;
