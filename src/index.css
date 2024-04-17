@@ -50,13 +50,15 @@ label {
   margin-bottom: 1em;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   color: #51a3a3;
   border-color: #51a3a3;
   transition: 0.2s;
 }
 
-input:focus::placeholder {
+input:focus::placeholder,
+textarea:focus::placeholder {
   color: #51a3a39f;
   transition: 0.2s;
 }
@@ -70,6 +72,7 @@ label span {
 
 input,
 textarea {
+  font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
   border: none;
   border-bottom: 1px solid #f7ece1;
