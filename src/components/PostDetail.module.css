@@ -1,0 +1,45 @@
+.post_detail {
+  margin-bottom: 2em;
+  padding-top: 1.5em;
+  border-top: 1px solid #51a3a3;
+  max-width: 600px;
+}
+
+.post_detail img {
+  max-width: 600px;
+  /* border-radius: 4px; */
+}
+
+.post_detail h2 {
+  margin-bottom: 0.4em;
+}
+
+.post_detail .tags {
+  margin-bottom: 1.2em;
+  display: flex;
+}
+
+.post_detail .tags p {
+  cursor: pointer;
+}
+
+.post_detail .tags p:hover {
+  color: #51a3a3;
+  transition: 0.2s;
+}
+
+.post_detail p {
+  margin-right: 0.5em;
+}
+
+.post_detail span {
+  font-weight: bold;
+}
+
+.createdBy {
+  font-style: italic;
+  color: #51a3a3;
+  font-size: 0.8em;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
