@@ -60,7 +60,7 @@ const Navbar = () => {
                 to={"/dashboard"}
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
-                Feed
+                Dashboard
               </NavLink>
             </li>
           </>

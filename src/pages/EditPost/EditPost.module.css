@@ -1,0 +1,13 @@
+.edit_post {
+  text-align: center;
+}
+
+.edit_post .preview_title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+}
+
+.image_preview {
+  width: 80%;
+  margin-bottom: 1em;
+}

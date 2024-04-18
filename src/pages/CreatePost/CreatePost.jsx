@@ -77,7 +77,7 @@ const CreatePost = () => {
             type="text"
             name="image"
             required
-            placeholder="Insira uma imagem que representa o seu post."
+            placeholder="Insira uma imagem que representa o seu post"
             value={image}
             onChange={(e) => setImage(e.target.value)}
           />
@@ -98,7 +98,7 @@ const CreatePost = () => {
             type="text"
             name="tags"
             required
-            placeholder="Insira as tags separadas por vírgula."
+            placeholder="Insira as tags separadas por vírgula (fotografia, retrato, paisagem)"
             value={tags}
             onChange={(e) => setTags(e.target.value)}
           />
