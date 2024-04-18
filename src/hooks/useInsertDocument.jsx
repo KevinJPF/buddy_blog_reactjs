@@ -50,7 +50,6 @@ export const useInsertDocument = (docCollection) => {
         payload: insertedDocument,
       });
     } catch (error) {
-      console.log("passou");
       checkCancelBeforeDispatch({
         type: "ERROR",
         payload: error.message,
