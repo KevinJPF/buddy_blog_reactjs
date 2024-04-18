@@ -6,17 +6,24 @@
 }
 
 .post_detail img {
-  max-width: 600px;
+  width: 600px;
   /* border-radius: 4px; */
 }
 
 .post_detail h2 {
   margin-bottom: 0.4em;
+  color: #f7ece1;
+}
+
+.post_detail h2:hover {
+  color: #51a3a3;
+  transition: 0.2s;
 }
 
 .post_detail .tags {
-  margin-bottom: 1.2em;
+  margin-bottom: 0.6em;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .post_detail .tags p {
@@ -29,11 +36,13 @@
 }
 
 .post_detail p {
+  margin: 0.4em 0;
   margin-right: 0.5em;
 }
 
 .post_detail span {
   font-weight: bold;
+  color: #51a3a3;
 }
 
 .createdBy {
@@ -42,4 +51,20 @@
   font-size: 0.8em;
   margin-bottom: 1em;
   cursor: pointer;
+}
+
+.createdBy:hover {
+  color: #f7ece1;
+  transition: 0.2s;
+}
+
+.tags {
+  margin: 0;
+  padding: 0;
+  color: #f7ece1;
+}
+
+.tags:hover {
+  color: #f7ece1;
+  cursor: default;
 }
