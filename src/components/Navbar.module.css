@@ -7,6 +7,13 @@
   background-color: #51a3a3;
 }
 
+.navbar img {
+  position: absolute;
+  height: 90px;
+  margin-top: -22px;
+  margin-left: -100px;
+}
+
 .navbar a {
   color: #1e1a2e;
 }
@@ -17,6 +24,7 @@
 
 .brand {
   font-size: 1.2em;
+  margin-left: 80px;
 }
 
 .brand span {
