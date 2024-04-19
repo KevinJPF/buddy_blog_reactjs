@@ -51,6 +51,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/search" element={<Search />} />
               <Route path="/posts/:id" element={<Post />} />
+              <Route path="/profile/:id" element={<Post />} />
               <Route
                 path="/register"
                 element={!user ? <Register /> : <Navigate to="/" />}

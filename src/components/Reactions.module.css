@@ -1,0 +1,172 @@
+.reactions_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 16px;
+  margin-left: 8px;
+}
+
+.reactions {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  /* margin-top: 16px; */
+  /* height: 20px; */
+}
+
+.reactions div {
+  display: flex;
+  flex-direction: column;
+}
+
+.reactions_quantity img,
+.reactions img {
+  margin: 5px 5px;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  border-radius: 200px;
+  background-color: #1e1a2e;
+  border: 2px solid #f7ece1;
+  transition: 0.5s;
+}
+
+.reactions img:hover {
+  margin: 0px 0px;
+  box-shadow: #f7ece1 0px 0px 8px 2px;
+  height: 50px;
+  width: 50px;
+  transition: 0.5s;
+}
+
+/* Like button */
+
+.reactions .like {
+  background-color: #ffcabd;
+}
+
+.reactions_quantity .like_mini,
+.reactions .like:hover {
+  background-color: #fb9f89;
+}
+
+/* Haha button */
+
+.reactions .haha {
+  background-color: #fdde87;
+}
+
+.reactions_quantity .haha_mini,
+.reactions .haha:hover {
+  background-color: #fdcd45;
+}
+
+/* Wow button */
+
+.reactions .wow {
+  background-color: #bfaadc;
+}
+
+.reactions_quantity .wow_mini,
+.reactions .wow:hover {
+  background-color: #9067c6;
+}
+
+/* Sad button */
+
+.reactions .sad {
+  background-color: #a6b1cc;
+}
+
+.reactions_quantity .sad_mini,
+.reactions .sad:hover {
+  background-color: #7185b5;
+}
+
+/* Angry button */
+
+.reactions .angry {
+  background-color: #c0797a;
+}
+
+.reactions_quantity .angry_mini,
+.reactions .angry:hover {
+  background-color: #ba1b1d;
+}
+
+.tooltip_container {
+  border-radius: 200px;
+  position: relative;
+  display: inline-block;
+  transition: opacity 0.5s;
+}
+
+.tooltip {
+  visibility: hidden;
+  background-color: #1e1a2e6f;
+  text-align: center;
+  padding: 5px 16px;
+  border-radius: 16px;
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.tooltip div {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tooltip_container img:hover + .tooltip {
+  text-shadow: #000 0px 0px 4px;
+  color: #f7ece1;
+  visibility: visible;
+  opacity: 1;
+}
+
+.reactions_quantity {
+  display: flex;
+  flex-direction: column;
+  /* cursor: pointer; */
+}
+
+.reactions_quantity .tooltip_container .tooltip span {
+  align-items: center;
+  justify-content: center;
+  color: #f7ece1;
+}
+
+.reactions_quantity:hover .tooltip {
+  text-align: start;
+  text-shadow: #000 0px 0px 4px;
+  color: #f7ece1;
+  visibility: visible;
+  opacity: 1;
+}
+
+.reactions_quantity img {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+.most_reacted {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.most_reacted span {
+  margin-left: 20px;
+}
+
+.most_reacted img {
+  margin-right: -16px;
+}

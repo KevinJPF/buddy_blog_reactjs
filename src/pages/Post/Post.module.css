@@ -42,8 +42,20 @@
   font-style: italic;
   font-size: 0.8em;
   margin-bottom: 1em;
-  cursor: pointer;
+  color: #51a3a3;
   justify-content: end;
+  align-items: center;
+}
+
+.createdBy p {
+  margin-right: 4px;
+  color: white;
+}
+
+.createdBy .user:hover {
+  color: #51a3a3;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
 .tags {

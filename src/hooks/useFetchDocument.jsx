@@ -10,6 +10,17 @@ export const useFetchDocument = (docCollection, id) => {
   // deal with memory leak
   const [cancelled, setCancelled] = useState(false);
 
+  function dateFormat(date) {
+    const day = (date.getDate() < 10 ? "0" : "") + date.getDate();
+    const month = (date.getMonth() + 1 < 10 ? "0" : "") + (date.getMonth() + 1);
+    const year = date.getFullYear();
+    const hours = (date.getHours() < 10 ? "0" : "") + date.getHours();
+    const minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
+    // const segundos = (data.getSeconds() < 10 ? "0" : "") + data.getSeconds();
+
+    return day + "/" + month + "/" + year + " - " + hours + ":" + minutes;
+  }
+
   useEffect(() => {
     async function loadDocument() {
       if (cancelled) return;
@@ -38,5 +49,5 @@ export const useFetchDocument = (docCollection, id) => {
     return () => setCancelled(true);
   }, []);
 
-  return { document, loading, error };
+  return { document, loading, error, dateFormat };
 };

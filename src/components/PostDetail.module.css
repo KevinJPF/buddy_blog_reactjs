@@ -13,6 +13,7 @@
 
 .post_detail h2 {
   margin-bottom: 0.4em;
+  margin-top: 0;
   color: #f7ece1;
 }
 
@@ -47,16 +48,19 @@
 }
 
 .createdBy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-style: italic;
   color: #51a3a3;
   font-size: 0.8em;
   margin-bottom: 1em;
-  cursor: pointer;
 }
 
-.createdBy:hover {
+.createdBy .user:hover {
   color: #f7ece1;
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .tags {

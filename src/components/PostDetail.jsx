@@ -1,17 +1,26 @@
 import styles from "./PostDetail.module.css";
 
 import { Link } from "react-router-dom";
+import Reactions from "./Reactions";
+import { useFetchDocuments } from "../hooks/useFetchDocuments";
 
 const PostDetail = ({ post }) => {
+  const { dateFormat } = useFetchDocuments();
+  const dataFormatada = dateFormat(post.createdAt.toDate());
+
   return (
     <div className={styles.post_detail}>
       <img src={post.image} alt={post.title} />
+      <Reactions post={post} />
       <Link to={`/posts/${post.id}`}>
         <h2>{post.title}</h2>
       </Link>
       <p className={styles.createdBy}>
-        <span>@</span>
-        {post.createdBy}
+        <p className={styles.user}>
+          <span>@</span>
+          {post.createdBy}
+        </p>
+        {dataFormatada}
       </p>
       <div className={styles.tags}>
         {post.tagsArray.map((tag) => (

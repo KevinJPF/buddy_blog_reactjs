@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Post = () => {
   const { id } = useParams();
-  const { document: post, loading } = useFetchDocument("posts", id);
+  const { document: post, loading, dateFormat } = useFetchDocument("posts", id);
 
   return (
     <div className={styles.post_container}>
@@ -21,8 +21,8 @@ const Post = () => {
           <h3>Tags do post:</h3>
           <div className={styles.tags}>
             {post.tagsArray.map((tag) => (
-              <Link to={`/search?q=${tag}`} className={styles.tags}>
-                <p key={tag}>
+              <Link to={`/search?q=${tag}`} className={styles.tags} key={tag}>
+                <p>
                   <span>#</span>
                   {tag}
                 </p>
@@ -30,11 +30,11 @@ const Post = () => {
             ))}
           </div>
           <p className={styles.createdBy}>
-            <span className="author">Autor: </span>
-            <>
+            <p>{dateFormat(post.createdAt.toDate())} por</p>
+            <p className={styles.user}>
               <span>@</span>
               {post.createdBy}
-            </>
+            </p>
           </p>
         </>
       )}
