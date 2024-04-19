@@ -8,6 +8,11 @@
   text-align: justify;
 }
 
+.post_container img {
+  max-height: 80vh;
+  object-fit: contain;
+}
+
 .post_container h1 {
   text-align: center;
 }
