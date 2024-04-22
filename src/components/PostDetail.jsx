@@ -15,17 +15,17 @@ const PostDetail = ({ post }) => {
       <Link to={`/posts/${post.id}`}>
         <h2>{post.title}</h2>
       </Link>
-      <p className={styles.createdBy}>
+      <div className={styles.createdBy}>
         <p className={styles.user}>
           <span>@</span>
           {post.createdBy}
         </p>
         {dataFormatada}
-      </p>
+      </div>
       <div className={styles.tags}>
         {post.tagsArray.map((tag) => (
-          <Link to={`/search?q=${tag}`} className={styles.tags}>
-            <p key={tag}>
+          <Link to={`/search?q=${tag}`} className={styles.tags} key={tag}>
+            <p>
               <span>#</span>
               {tag}
             </p>

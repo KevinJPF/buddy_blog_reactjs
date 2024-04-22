@@ -29,13 +29,13 @@ const Post = () => {
               </Link>
             ))}
           </div>
-          <p className={styles.createdBy}>
+          <div className={styles.createdBy}>
             <p>{dateFormat(post.createdAt.toDate())} por</p>
             <p className={styles.user}>
               <span>@</span>
               {post.createdBy}
             </p>
-          </p>
+          </div>
         </>
       )}
     </div>

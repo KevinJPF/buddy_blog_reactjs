@@ -39,59 +39,130 @@
   transition: 0.5s;
 }
 
+@keyframes shake {
+  0% {
+    transform: translateX(0px) translateY(-1px); /* Move a imagem levemente para cima e para a esquerda */
+  }
+  100% {
+    transform: translateX(0px) translateY(1px); /* Move a imagem levemente para baixo e para a direita */
+  }
+}
+
 /* Like button */
 
+.reactions_quantity .like_mini,
 .reactions .like {
   background-color: #ffcabd;
 }
 
-.reactions_quantity .like_mini,
 .reactions .like:hover {
   background-color: #fb9f89;
+  box-shadow: #fb9f89 0px 0px 8px 2px;
+  animation: shake 0.25s infinite alternate;
+  animation-delay: 500ms;
 }
 
 /* Haha button */
 
+.reactions_quantity .haha_mini,
 .reactions .haha {
   background-color: #fdde87;
 }
 
-.reactions_quantity .haha_mini,
 .reactions .haha:hover {
   background-color: #fdcd45;
+  box-shadow: #fdcd45 0px 0px 8px 2px;
+  animation: shake 100ms infinite alternate;
+  animation-delay: 500ms;
 }
 
 /* Wow button */
 
+.reactions_quantity .wow_mini,
 .reactions .wow {
   background-color: #bfaadc;
 }
 
-.reactions_quantity .wow_mini,
 .reactions .wow:hover {
   background-color: #9067c6;
+  box-shadow: #9067c6 0px 0px 8px 2px;
+  animation: shake 0.5s infinite alternate;
+  animation-delay: 500ms;
 }
 
 /* Sad button */
 
+.reactions_quantity .sad_mini,
 .reactions .sad {
   background-color: #a6b1cc;
 }
 
-.reactions_quantity .sad_mini,
 .reactions .sad:hover {
   background-color: #7185b5;
+  box-shadow: #7185b5 0px 0px 8px 2px;
+  animation: shake 1s infinite alternate;
+  animation-delay: 500ms;
 }
 
 /* Angry button */
 
+@keyframes shake-angry {
+  0% {
+    transform: translateX(-1px) translateY(0px); /* Move a imagem levemente para cima e para a esquerda */
+  }
+  100% {
+    transform: translateX(1px) translateY(0px); /* Move a imagem levemente para baixo e para a direita */
+  }
+}
+
+.reactions_quantity .angry_mini,
 .reactions .angry {
   background-color: #c0797a;
 }
 
-.reactions_quantity .angry_mini,
 .reactions .angry:hover {
   background-color: #ba1b1d;
+  box-shadow: #ba1b1d 0px 0px 8px 2px;
+  animation: shake-angry 0.07s infinite alternate;
+  animation-delay: 500ms;
+}
+
+/* Pedro button */
+
+@keyframes spin {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.reactions_quantity .pedro_mini,
+.reactions .pedro {
+  background-color: #808080;
+}
+
+.reactions .pedro:hover {
+  background-color: #323232;
+  box-shadow: #323232 0px 0px 8px 2px;
+  animation: spin 5s linear infinite;
+}
+
+/* Selected button */
+
+.reactions .selected {
+  /* margin: 0px 0px; */
+  box-shadow: #7bc4c4 0px 0px 8px 2px;
+  height: 40px;
+  transition: 0.5s;
+  background-color: #7bc4c4;
+}
+
+.reactions_quantity .selected_mini,
+.reactions .selected:hover {
+  background-color: #51a3a3;
+  box-shadow: #51a3a3 0px 0px 8px 2px;
 }
 
 .tooltip_container {
@@ -133,13 +204,14 @@
 .reactions_quantity {
   display: flex;
   flex-direction: column;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
 .reactions_quantity .tooltip_container .tooltip span {
   align-items: center;
   justify-content: center;
   color: #f7ece1;
+  margin: 4px 0;
 }
 
 .reactions_quantity:hover .tooltip {
