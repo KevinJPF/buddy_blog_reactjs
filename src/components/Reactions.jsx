@@ -4,72 +4,91 @@ import { useAuthValue } from "../context/AuthContext";
 
 const Reactions = ({ post }) => {
   const { user } = useAuthValue();
-  const uid = user.uid;
+  const uid = user ? user.uid : '';
 
-  let [likes, setLikes] = useState(0);
-  let [hahas, setHahas] = useState(0);
-  let [wows, setWows] = useState(0);
-  let [sads, setSads] = useState(0);
-  let [angrys, setAngrys] = useState(0);
-  let [pedros, setPedros] = useState(0);
+  const [likes, setLikes] = useState(0);
+  const [hahas, setHahas] = useState(0);
+  const [wows, setWows] = useState(0);
+  const [sads, setSads] = useState(0);
+  const [angrys, setAngrys] = useState(0);
+  const [pedros, setPedros] = useState(0);
 
-  let dbSelectedReaction = null;
+  const [selectedReaction, setSelectedReaction] = useState("");
 
-  useEffect(() => {
-    if (post.user_reactions) {
-      console.log("passou");
-      post.user_reactions.some((post_reaction) => {
-        if (post_reaction.user_id === uid) {
-          dbSelectedReaction = post_reaction.reaction;
-        }
-
-        switch (post_reaction.reaction) {
-          case "like":
-            setLikes(likes + 1);
-            break;
-          case "haha":
-            setHahas(hahas + 1);
-            break;
-          case "wow":
-            setWows(wows + 1);
-            break;
-          case "sad":
-            setSads(sads + 1);
-            break;
-          case "angry":
-            setAngrys(angrys + 1);
-            break;
-          case "pedro":
-            setPedros(pedros + 1);
-            break;
-        }
-      });
-    }
-  }, []);
+  const [totalReactions, setTotalReactions] = useState(0);
 
   // Cria um array de objetos com as keys e valuees dos dados
-  let reactionsValues = [
+  const [reactionsValues, setReactionsValues] = useState([
     { key: "like", value: likes, style: styles.like_mini },
     { key: "haha", value: hahas, style: styles.haha_mini },
     { key: "wow", value: wows, style: styles.wow_mini },
     { key: "sad", value: sads, style: styles.sad_mini },
     { key: "angry", value: angrys, style: styles.angry_mini },
     { key: "pedro", value: pedros, style: styles.pedro_mini },
-  ];
+  ]);
 
   // Ordena o array com base nos valuees (do mais alto para o mais baixo)
   // Extrai as keys ordenadas
   const orderedReactions = reactionsValues.sort((a, b) => b.value - a.value);
 
-  const [totalReactions, setTotalReactions] = useState(
-    reactionsValues.reduce((total, item) => total + item.value, 0)
-  );
+  useEffect(() => {
+    if (post.user_reactions) {
+      if (post.title === "Banda Djavu, é show") {
+        console.log("Djavu");
+      }
+      setLikes(0);
+      setHahas(0);
+      setWows(0);
+      setSads(0);
+      setAngrys(0);
+      setPedros(0);
 
-  const [selectedReaction, setSelectedReaction] = useState(
-    dbSelectedReaction ?? ""
-  );
+      post.user_reactions.forEach((post_reaction) => {
+        if (post_reaction.user_id === uid) {
+          setSelectedReaction(post_reaction.reaction);
+        }
 
-  const newSelectedReaction = (reaction) => {
+        switch (post_reaction.reaction) {
+          case "like":
+            setLikes((prevLikes) => prevLikes + 1);
+            break;
+          case "haha":
+            setHahas((prevHahas) => prevHahas + 1);
+            break;
+          case "wow":
+            setWows((prevWows) => prevWows + 1);
+            break;
+          case "sad":
+            setSads((prevSads) => prevSads + 1);
+            break;
+          case "angry":
+            setAngrys((prevAngrys) => prevAngrys + 1);
+            break;
+          case "pedro":
+            setPedros((prevPedros) => prevPedros + 1);
+            break;
+        }
+      });
+    }
+  }, [post.user_reactions, uid]);
+
+  useEffect(() => {
+    setTotalReactions(likes + hahas + wows + sads + angrys + pedros);
+    setReactionsValues([
+      { key: "like", value: likes, style: styles.like_mini },
+      { key: "haha", value: hahas, style: styles.haha_mini },
+      { key: "wow", value: wows, style: styles.wow_mini },
+      { key: "sad", value: sads, style: styles.sad_mini },
+      { key: "angry", value: angrys, style: styles.angry_mini },
+      { key: "pedro", value: pedros, style: styles.pedro_mini },
+    ]);
+  }, [likes, hahas, wows, sads, angrys, pedros])
+
+  if (post.title === "Banda Djavu, é show") {
+    // console.log(selectedReaction);
+  }
+
+  function newSelectedReaction(reaction) {
     // console.log(`${reaction} - ${likes}`);
     if (selectedReaction === reaction) {
       return;
@@ -78,47 +97,46 @@ const Reactions = ({ post }) => {
     if (selectedReaction != "") {
       switch (selectedReaction) {
         case "like":
-          setLikes(likes - 1);
+          setLikes((prevLikes) => prevLikes - 1);
           break;
         case "haha":
-          setHahas(hahas - 1);
+          setHahas((prevHahas) => prevHahas - 1);
           break;
         case "wow":
-          setWows(wows - 1);
+          setWows((prevWows) => prevWows - 1);
           break;
         case "sad":
-          setSads(sads - 1);
+          setSads((prevSads) => prevSads - 1);
           break;
         case "angry":
-          setAngrys(angrys - 1);
+          setAngrys((prevAngrys) => prevAngrys - 1);
           break;
         case "pedro":
-          setPedros(pedros - 1);
+          setPedros((prevPedros) => prevPedros - 1);
           break;
       }
     }
     setSelectedReaction(reaction);
     switch (reaction) {
       case "like":
-        setLikes(likes + 1);
+        setLikes((prevLikes) => prevLikes + 1);
         break;
       case "haha":
-        setHahas(hahas + 1);
+        setHahas((prevHahas) => prevHahas + 1);
         break;
       case "wow":
-        setWows(wows + 1);
+        setWows((prevWows) => prevWows + 1);
         break;
       case "sad":
-        setSads(sads + 1);
+        setSads((prevSads) => prevSads + 1);
         break;
       case "angry":
-        setAngrys(angrys + 1);
+        setAngrys((prevAngrys) => prevAngrys + 1);
         break;
       case "pedro":
-        setPedros(pedros + 1);
+        setPedros((prevPedros) => prevPedros + 1);
         break;
     }
-    setTotalReactions(likes + hahas + wows + sads + angrys + pedros);
   };
 
   return (
@@ -250,8 +268,8 @@ const Reactions = ({ post }) => {
               {totalReactions == 0
                 ? " nenhuma reação"
                 : totalReactions > 1
-                ? " reações"
-                : " reação"}
+                  ? " reações"
+                  : " reação"}
             </p>
           </div>
           <div className={styles.tooltip}>

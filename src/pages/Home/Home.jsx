@@ -18,7 +18,12 @@ const Home = () => {
       <SearchForm />
       <div>
         {loading && <p>Carregando...</p>}
-        {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
+        {posts && posts.map((post) => {
+          if (post.title === "Banda Djavu, é show") {
+            console.log('homepost');
+          }
+          return <PostDetail key={post.id} post={post} />
+        })}
         {posts && posts.length === 0 && (
           <div className={styles.noposts}>
             <p>Não foram encontrados posts</p>

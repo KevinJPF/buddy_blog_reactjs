@@ -16,21 +16,14 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
   // deal with memory leak
   const [cancelled, setCancelled] = useState(false);
 
-  function dateFormat(date) {
-    const day = (date.getDate() < 10 ? "0" : "") + date.getDate();
-    const month = (date.getMonth() + 1 < 10 ? "0" : "") + (date.getMonth() + 1);
-    const year = date.getFullYear();
-    const hours = (date.getHours() < 10 ? "0" : "") + date.getHours();
-    const minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
-    // const segundos = (data.getSeconds() < 10 ? "0" : "") + data.getSeconds();
-
-    return day + "/" + month + "/" + year + " - " + hours + ":" + minutes;
-  }
-
   useEffect(() => {
     async function loadData() {
-      if (cancelled) return;
+      if (cancelled) {
+        console.log('cenellece');
+        return;
+      }
 
+      console.log('continued');
       setLoading(true);
 
       const collectionRef = await collection(db, docCollection);
@@ -75,6 +68,8 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
 
         setLoading(false);
       }
+
+      console.log('bdtwice');
     }
 
     loadData();
@@ -84,5 +79,5 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
     return () => setCancelled(true);
   }, []);
 
-  return { documents, loading, error, dateFormat };
+  return { documents, loading, error };
 };
