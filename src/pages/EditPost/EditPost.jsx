@@ -14,6 +14,7 @@ const EditPost = () => {
   const [image, setImage] = useState("");
   const [body, setBody] = useState("");
   const [tags, setTags] = useState([]);
+  const [user_reactions, setUser_reactions] = useState([]);
   const [formError, setFormError] = useState("");
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const EditPost = () => {
       setTitle(post.title);
       setBody(post.body);
       setImage(post.image);
+      setUser_reactions(post.user_reactions);
 
       const textTags = post.tagsArray.join(", ");
 

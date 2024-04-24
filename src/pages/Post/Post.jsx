@@ -8,7 +8,18 @@ import { Link } from "react-router-dom";
 
 const Post = () => {
   const { id } = useParams();
-  const { document: post, loading, dateFormat } = useFetchDocument("posts", id);
+  const { document: post, loading } = useFetchDocument("posts", id);
+
+  function dateFormat(date) {
+    const day = (date.getDate() < 10 ? "0" : "") + date.getDate();
+    const month = (date.getMonth() + 1 < 10 ? "0" : "") + (date.getMonth() + 1);
+    const year = date.getFullYear();
+    const hours = (date.getHours() < 10 ? "0" : "") + date.getHours();
+    const minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
+    // const segundos = (data.getSeconds() < 10 ? "0" : "") + data.getSeconds();
+
+    return day + "/" + month + "/" + year + " - " + hours + ":" + minutes;
+  }
 
   return (
     <div className={styles.post_container}>

@@ -19,11 +19,9 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
   useEffect(() => {
     async function loadData() {
       if (cancelled) {
-        console.log('cenellece');
         return;
       }
 
-      console.log('continued');
       setLoading(true);
 
       const collectionRef = await collection(db, docCollection);
@@ -68,8 +66,6 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
 
         setLoading(false);
       }
-
-      console.log('bdtwice');
     }
 
     loadData();
