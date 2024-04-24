@@ -35,6 +35,8 @@ const CreatePost = () => {
       .split(",")
       .map((tag) => tag.trim().toLowerCase());
 
+    const user_reactions = [];
+
     // check all values
     if (!title || !image || !tags || !body) {
       setFormError("Por favor, preencha todos os campos!");
@@ -50,6 +52,7 @@ const CreatePost = () => {
       image,
       body,
       tagsArray,
+      user_reactions,
       uid: user.uid,
       createdBy: user.displayName,
     });

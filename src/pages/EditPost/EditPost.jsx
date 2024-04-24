@@ -63,6 +63,7 @@ const EditPost = () => {
       image,
       body,
       tagsArray,
+      user_reactions,
       uid: user.uid,
       createdBy: user.displayName,
     };

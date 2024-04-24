@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import styles from "./Reactions.module.css";
 import { useAuthValue } from "../context/AuthContext";
+import { useUpdateDocument } from "../hooks/useUpdateDocument";
 
 const Reactions = ({ post }) => {
+  const { updateDocument, response } = useUpdateDocument("posts");
+
   const { user } = useAuthValue();
   const uid = user ? user.uid : '';
 
@@ -89,6 +92,7 @@ const Reactions = ({ post }) => {
   }
 
   function newSelectedReaction(reaction) {
+    let queryType = "insert";
     // console.log(`${reaction} - ${likes}`);
     if (selectedReaction === reaction) {
       return;
@@ -137,6 +141,26 @@ const Reactions = ({ post }) => {
         setPedros((prevPedros) => prevPedros + 1);
         break;
     }
+
+    post.user_reactions.forEach((post_reaction) => {
+      if (post_reaction.user_id === uid) {
+        queryType = "update";
+        post_reaction.reaction = reaction;
+      }
+    });
+
+    console.log(post.user_reactions);
+
+    if (queryType === "insert") {
+      post.user_reactions.push({
+        "user_id": uid,
+        "reaction": reaction,
+      });
+    }
+
+    console.log(post.user_reactions);
+
+    updateDocument(post.id, post);
   };
 
   return (
