@@ -48,7 +48,8 @@ const EditPost = () => {
     }
 
     // create tags array
-    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
+    const tagsArray = tags.split(",").map((tag) =>
+      tag.replace("#", "").trim().toLowerCase());
 
     // check all values
     if (!title || !image || !tags || !body) {

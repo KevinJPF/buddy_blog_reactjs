@@ -31,9 +31,8 @@ const CreatePost = () => {
 
     // create tags array
     const tagsArray = tags
-      .replace("#", "")
       .split(",")
-      .map((tag) => tag.trim().toLowerCase());
+      .map((tag) => tag.replace("#", "").trim().toLowerCase());
 
     const user_reactions = [];
 
