@@ -7,7 +7,7 @@ const Reactions = ({ post }) => {
   const { updateDocument, response } = useUpdateDocument("posts");
 
   const { user } = useAuthValue();
-  const uid = user ? user.uid : '';
+  const uid = user ? user.uid : "";
 
   const [likes, setLikes] = useState(0);
   const [hahas, setHahas] = useState(0);
@@ -85,7 +85,7 @@ const Reactions = ({ post }) => {
       { key: "angry", value: angrys, style: styles.angry_mini },
       { key: "pedro", value: pedros, style: styles.pedro_mini },
     ]);
-  }, [likes, hahas, wows, sads, angrys, pedros])
+  }, [likes, hahas, wows, sads, angrys, pedros]);
 
   if (post.title === "Banda Djavu, é show") {
     // console.log(selectedReaction);
@@ -153,15 +153,15 @@ const Reactions = ({ post }) => {
 
     if (queryType === "insert") {
       post.user_reactions.push({
-        "user_id": uid,
-        "reaction": reaction,
+        user_id: uid,
+        reaction: reaction,
       });
     }
 
     console.log(post.user_reactions);
 
     updateDocument(post.id, post);
-  };
+  }
 
   return (
     <div className={styles.reactions_container}>
@@ -292,8 +292,8 @@ const Reactions = ({ post }) => {
               {totalReactions == 0
                 ? " nenhuma reação"
                 : totalReactions > 1
-                  ? " reações"
-                  : " reação"}
+                ? " reações"
+                : " reação"}
             </p>
           </div>
           <div className={styles.tooltip}>

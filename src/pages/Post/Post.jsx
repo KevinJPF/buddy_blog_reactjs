@@ -32,7 +32,11 @@ const Post = () => {
           <h3>Tags do post:</h3>
           <div className={styles.tags}>
             {post.tagsArray.map((tag) => (
-              <Link to={`/search?q=${tag}`} className={styles.tags} key={tag}>
+              <Link
+                to={`/buddy_blog_reactjs/search?q=${tag}`}
+                className={styles.tags}
+                key={tag}
+              >
                 <p>
                   <span>#</span>
                   {tag}

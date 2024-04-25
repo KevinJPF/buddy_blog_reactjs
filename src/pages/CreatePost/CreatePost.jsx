@@ -57,7 +57,7 @@ const CreatePost = () => {
     });
 
     // redirect to home page
-    navigate("/");
+    navigate("/buddy_blog_reactjs/home");
   };
 
   return (

@@ -18,15 +18,11 @@ const PostDetail = ({ post }) => {
     return day + "/" + month + "/" + year + " - " + hours + ":" + minutes;
   }
 
-  if (post.title === "Banda Djavu, é show") {
-    console.log('postdetail');
-  }
-
   return (
     <div className={styles.post_detail}>
       <img src={post.image} alt={post.title} />
       <Reactions post={post} />
-      <Link to={`/posts/${post.id}`}>
+      <Link to={`/buddy_blog_reactjs/posts/${post.id}`}>
         <h2>{post.title}</h2>
       </Link>
       <div className={styles.createdBy}>
@@ -38,7 +34,11 @@ const PostDetail = ({ post }) => {
       </div>
       <div className={styles.tags}>
         {post.tagsArray.map((tag) => (
-          <Link to={`/search?q=${tag}`} className={styles.tags} key={tag}>
+          <Link
+            to={`/buddy_blog_reactjs/search?q=${tag}`}
+            className={styles.tags}
+            key={tag}
+          >
             <p>
               <span>#</span>
               {tag}
@@ -46,7 +46,10 @@ const PostDetail = ({ post }) => {
           </Link>
         ))}
       </div>
-      <Link to={`/posts/${post.id}`} className="btn btn-outline btn_read">
+      <Link
+        to={`/buddy_blog_reactjs/posts/${post.id}`}
+        className="btn btn-outline btn_read"
+      >
         Ler
       </Link>
     </div>

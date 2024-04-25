@@ -18,16 +18,14 @@ const Home = () => {
       <SearchForm />
       <div>
         {loading && <p>Carregando...</p>}
-        {posts && posts.map((post) => {
-          if (post.title === "Banda Djavu, é show") {
-            console.log('homepost');
-          }
-          return <PostDetail key={post.id} post={post} />
-        })}
+        {posts &&
+          posts.map((post) => {
+            return <PostDetail key={post.id} post={post} />;
+          })}
         {posts && posts.length === 0 && (
           <div className={styles.noposts}>
             <p>Não foram encontrados posts</p>
-            <Link to="/posts/create" className="btn">
+            <Link to="/buddy_blog_reactjs/posts/create" className="btn">
               Criar primeiro post
             </Link>
           </div>

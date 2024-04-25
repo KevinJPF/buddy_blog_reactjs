@@ -47,30 +47,59 @@ function App() {
           <Navbar />
           <div className="container">
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/posts/:id" element={<Post />} />
-              <Route path="/profile/:id" element={<Post />} />
+              <Route path="/buddy_blog_reactjs/home/" element={<Home />} />
+              <Route path="/buddy_blog_reactjs/about" element={<About />} />
+              <Route path="/buddy_blog_reactjs/search" element={<Search />} />
+              <Route path="/buddy_blog_reactjs/posts/:id" element={<Post />} />
               <Route
-                path="/register"
-                element={!user ? <Register /> : <Navigate to="/" />}
+                path="/buddy_blog_reactjs/profile/:id"
+                element={<Post />}
               />
               <Route
-                path="/login"
-                element={!user ? <Login /> : <Navigate to="/" />}
+                path="/buddy_blog_reactjs/register"
+                element={
+                  !user ? (
+                    <Register />
+                  ) : (
+                    <Navigate to="/buddy_blog_reactjs/home" />
+                  )
+                }
               />
               <Route
-                path="/posts/create"
-                element={user ? <CreatePost /> : <Navigate to="/login" />}
+                path="/buddy_blog_reactjs/login"
+                element={
+                  !user ? <Login /> : <Navigate to="/buddy_blog_reactjs/home" />
+                }
               />
               <Route
-                path="/posts/edit/:id"
-                element={user ? <EditPost /> : <Navigate to="/login" />}
+                path="/buddy_blog_reactjs/posts/create"
+                element={
+                  user ? (
+                    <CreatePost />
+                  ) : (
+                    <Navigate to="/buddy_blog_reactjs/login" />
+                  )
+                }
               />
               <Route
-                path="/dashboard"
-                element={user ? <Dashboard /> : <Navigate to="/login" />}
+                path="/buddy_blog_reactjs/posts/edit/:id"
+                element={
+                  user ? (
+                    <EditPost />
+                  ) : (
+                    <Navigate to="/buddy_blog_reactjs/login" />
+                  )
+                }
+              />
+              <Route
+                path="/buddy_blog_reactjs/dashboard"
+                element={
+                  user ? (
+                    <Dashboard />
+                  ) : (
+                    <Navigate to="/buddy_blog_reactjs/login" />
+                  )
+                }
               />
             </Routes>
           </div>

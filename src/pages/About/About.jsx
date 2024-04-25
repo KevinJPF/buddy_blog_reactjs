@@ -15,11 +15,11 @@ const About = () => {
         no back-end.
       </p>
       {user ? (
-        <Link to={"/posts/create"} className="btn">
+        <Link tto={"/buddy_blog_reactjs/posts/create"} className="btn">
           Criar Post
         </Link>
       ) : (
-        <Link to={"/login"} className="btn">
+        <Link to={"/buddy_blog_reactjs/login"} className="btn">
           Entrar
         </Link>
       )}

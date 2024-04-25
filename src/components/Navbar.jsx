@@ -13,14 +13,14 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <NavLink to={"/"} className={styles.brand}>
+      <NavLink to={"/buddy_blog_reactjs/home"} className={styles.brand}>
         <img src="logo.png" alt="logo" />
         Buddy <span>Blog</span>
       </NavLink>
       <ul className={styles.links_list}>
         <li>
           <NavLink
-            to={"/"}
+            to={"/buddy_blog_reactjs/home"}
             className={({ isActive }) => (isActive ? styles.active : "")}
           >
             Início
@@ -30,7 +30,7 @@ const Navbar = () => {
           <>
             <li>
               <NavLink
-                to={"/login"}
+                to={"/buddy_blog_reactjs/login"}
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
                 Entrar
@@ -38,7 +38,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to={"/register"}
+                to={"/buddy_blog_reactjs/register"}
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
                 Cadastrar
@@ -50,7 +50,7 @@ const Navbar = () => {
           <>
             <li>
               <NavLink
-                to={"/posts/create"}
+                to={"/buddy_blog_reactjs/posts/create"}
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
                 Novo Post
@@ -58,7 +58,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to={"/dashboard"}
+                to={"/buddy_blog_reactjs/dashboard"}
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
                 Dashboard
@@ -68,7 +68,7 @@ const Navbar = () => {
         )}
         <li>
           <NavLink
-            to={"/about"}
+            to={"/buddy_blog_reactjs/about"}
             className={({ isActive }) => (isActive ? styles.active : "")}
           >
             Sobre
