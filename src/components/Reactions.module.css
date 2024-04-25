@@ -202,9 +202,17 @@
 }
 
 .reactions_quantity {
+  margin: 10px 0;
+  padding: 0 16px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  background-color: #7185b52f;
+  border-radius: 89px;
+  /* background-color: #fff; */
+  height: 40px;
 }
 
 .reactions_quantity .tooltip_container .tooltip span {

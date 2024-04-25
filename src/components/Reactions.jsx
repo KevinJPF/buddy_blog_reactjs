@@ -87,10 +87,6 @@ const Reactions = ({ post }) => {
     ]);
   }, [likes, hahas, wows, sads, angrys, pedros]);
 
-  if (post.title === "Banda Djavu, é show") {
-    // console.log(selectedReaction);
-  }
-
   function newSelectedReaction(reaction) {
     let queryType = "insert";
     // console.log(`${reaction} - ${likes}`);
@@ -166,96 +162,100 @@ const Reactions = ({ post }) => {
   return (
     <div className={styles.reactions_container}>
       <div className={styles.reactions}>
-        <div
-          className={styles.tooltip_container}
-          onClick={() => newSelectedReaction("like")}
-        >
-          <img
-            src="like_icon.png"
-            alt="likepost"
-            className={
-              selectedReaction == "like"
-                ? `${styles.selected} ${styles.like}`
-                : styles.like
-            }
-          />
-          <span className={styles.tooltip}>Gostei</span>
-        </div>
-        <div
-          className={styles.tooltip_container}
-          onClick={() => newSelectedReaction("haha")}
-        >
-          <img
-            src="haha_icon.png"
-            alt="hahapost"
-            className={
-              selectedReaction === "haha"
-                ? `${styles.selected} ${styles.haha}`
-                : styles.haha
-            }
-          />
-          <span className={styles.tooltip}>Haha</span>
-        </div>
-        <div
-          className={styles.tooltip_container}
-          onClick={() => newSelectedReaction("wow")}
-        >
-          <img
-            src="wow_icon.png"
-            alt="wowpost"
-            className={
-              selectedReaction == "wow"
-                ? `${styles.selected} ${styles.wow}`
-                : styles.wow
-            }
-          />
-          <span className={styles.tooltip}>UAU</span>
-        </div>
-        <div
-          className={styles.tooltip_container}
-          onClick={() => newSelectedReaction("sad")}
-        >
-          <img
-            src="sad_icon.png"
-            alt="sadpost"
-            className={
-              selectedReaction == "sad"
-                ? `${styles.selected} ${styles.sad}`
-                : styles.sad
-            }
-          />
-          <span className={styles.tooltip}>Triste</span>
-        </div>
-        <div
-          className={styles.tooltip_container}
-          onClick={() => newSelectedReaction("angry")}
-        >
-          <img
-            src="angry_icon.png"
-            alt="angrypost"
-            className={
-              selectedReaction == "angry"
-                ? `${styles.selected} ${styles.angry}`
-                : styles.angry
-            }
-          />
-          <span className={styles.tooltip}>Grr</span>
-        </div>
-        <div
-          className={styles.tooltip_container}
-          onClick={() => newSelectedReaction("pedro")}
-        >
-          <img
-            src="pedro_icon.png"
-            alt="pedropost"
-            className={
-              selectedReaction == "pedro"
-                ? `${styles.selected} ${styles.pedro}`
-                : styles.pedro
-            }
-          />
-          <span className={styles.tooltip}>Pedro</span>
-        </div>
+        {user && (
+          <>
+            <div
+              className={styles.tooltip_container}
+              onClick={() => newSelectedReaction("like")}
+            >
+              <img
+                src="like_icon.png"
+                alt="likepost"
+                className={
+                  selectedReaction == "like"
+                    ? `${styles.selected} ${styles.like}`
+                    : styles.like
+                }
+              />
+              <span className={styles.tooltip}>Gostei</span>
+            </div>
+            <div
+              className={styles.tooltip_container}
+              onClick={() => newSelectedReaction("haha")}
+            >
+              <img
+                src="haha_icon.png"
+                alt="hahapost"
+                className={
+                  selectedReaction === "haha"
+                    ? `${styles.selected} ${styles.haha}`
+                    : styles.haha
+                }
+              />
+              <span className={styles.tooltip}>Haha</span>
+            </div>
+            <div
+              className={styles.tooltip_container}
+              onClick={() => newSelectedReaction("wow")}
+            >
+              <img
+                src="wow_icon.png"
+                alt="wowpost"
+                className={
+                  selectedReaction == "wow"
+                    ? `${styles.selected} ${styles.wow}`
+                    : styles.wow
+                }
+              />
+              <span className={styles.tooltip}>UAU</span>
+            </div>
+            <div
+              className={styles.tooltip_container}
+              onClick={() => newSelectedReaction("sad")}
+            >
+              <img
+                src="sad_icon.png"
+                alt="sadpost"
+                className={
+                  selectedReaction == "sad"
+                    ? `${styles.selected} ${styles.sad}`
+                    : styles.sad
+                }
+              />
+              <span className={styles.tooltip}>Triste</span>
+            </div>
+            <div
+              className={styles.tooltip_container}
+              onClick={() => newSelectedReaction("angry")}
+            >
+              <img
+                src="angry_icon.png"
+                alt="angrypost"
+                className={
+                  selectedReaction == "angry"
+                    ? `${styles.selected} ${styles.angry}`
+                    : styles.angry
+                }
+              />
+              <span className={styles.tooltip}>Grr</span>
+            </div>
+            <div
+              className={styles.tooltip_container}
+              onClick={() => newSelectedReaction("pedro")}
+            >
+              <img
+                src="pedro_icon.png"
+                alt="pedropost"
+                className={
+                  selectedReaction == "pedro"
+                    ? `${styles.selected} ${styles.pedro}`
+                    : styles.pedro
+                }
+              />
+              <span className={styles.tooltip}>Pedro</span>
+            </div>
+          </>
+        )}
       </div>
       <div className={styles.reactions_quantity}>
         <div className={styles.tooltip_container}>
