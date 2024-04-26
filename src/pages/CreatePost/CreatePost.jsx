@@ -35,6 +35,7 @@ const CreatePost = () => {
       .map((tag) => tag.replace("#", "").trim().toLowerCase());
 
     const user_reactions = [];
+    const comments = [];
 
     // check all values
     if (!title || !image || !tags || !body) {
@@ -52,6 +53,7 @@ const CreatePost = () => {
       body,
       tagsArray,
       user_reactions,
+      comments,
       uid: user.uid,
       createdBy: user.displayName,
     });

@@ -5,6 +5,7 @@ import styles from "./Post.module.css";
 import { useParams } from "react-router-dom";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 import { Link } from "react-router-dom";
+import Comments from "../../components/Comments";
 
 const Post = () => {
   const { id } = useParams();
@@ -29,6 +30,7 @@ const Post = () => {
           <h1>{post.title}</h1>
           <img src={post.image} alt={post.title} />
           <p>{post.body}</p>
+          <Comments post={post} />
           <h3>Tags do post:</h3>
           <div className={styles.tags}>
             {post.tagsArray.map((tag) => (

@@ -101,6 +101,7 @@ function App() {
                   )
                 }
               />
+              <Route path="/buddy_blog_reactjs/home/" element={<Home />} />
             </Routes>
           </div>
           <Footer />
