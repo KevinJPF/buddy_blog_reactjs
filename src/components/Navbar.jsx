@@ -56,12 +56,20 @@ const Navbar = () => {
                 Novo Post
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to={"/buddy_blog_reactjs/dashboard"}
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
                 Dashboard
+              </NavLink>
+            </li> */}
+            <li>
+              <NavLink
+                to={"/buddy_blog_reactjs/my-profile"}
+                className={({ isActive }) => (isActive ? styles.active : "")}
+              >
+                Perfil
               </NavLink>
             </li>
           </>

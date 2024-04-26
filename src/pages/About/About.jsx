@@ -15,7 +15,7 @@ const About = () => {
         no back-end.
       </p>
       {user ? (
-        <Link tto={"/buddy_blog_reactjs/posts/create"} className="btn">
+        <Link to={"/buddy_blog_reactjs/posts/create"} className="btn">
           Criar Post
         </Link>
       ) : (
